@@ -1,0 +1,323 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - AdWave</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E5E5E5;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        /* Ensure layout scales properly */
+        * {
+            box-sizing: border-box;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 5%;
+            background-color: #333;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #a7f3d0;
+        }
+
+        .login-signup {
+            display: flex;
+            margin-right: 40px;
+        }
+
+        .login-signup a {
+            margin-left: 15px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #6b7280;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .login-signup a:hover {
+            background-color: #4b5563;
+        }
+
+        /* Logo Styling */
+        .logo-image {
+            max-width: 50px; /* Limit the width of the logo */
+            height: auto; /* Keep aspect ratio */
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #cfe9f7;
+            height: 60vh;
+            text-align: center;
+            padding: 40px 5%;
+        }
+
+        .hero h1 {
+            color: #0e7490;
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #1f2937;
+        }
+
+        .hero-buttons {
+            margin-top: 20px;
+        }
+
+        .hero-buttons a {
+            padding: 15px 30px;
+            color: white;
+            background-color: #2563eb;
+            border-radius: 30px;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .hero-buttons a:hover {
+            background-color: #1e40af;
+        }
+
+        /* Feedback Module Styles */
+        .feedback-container {
+            max-width: 100%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .feedback-container h2 {
+            color: #0e7490;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Polls Section */
+        .poll-section {
+            margin-bottom: 30px;
+        }
+
+        .poll-question {
+            font-size: 1.2rem;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .poll-option {
+            display: center;
+            margin: 10px 0;
+        }
+
+        /* Feedback Form Section */
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align to the left to avoid centering issues */
+            width: 100%;
+            max-width: 750px; /* Limit the width for larger screens */
+            margin: 0 auto; /* Center the form horizontally */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .feedback-form label {
+            font-size: 1rem;
+            color: #1f2937;
+            margin-bottom: 5px;
+            align-self: flex-start; /* Align labels to the left */
+        }
+
+        .feedback-form input,
+        .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            box-sizing: border-box; /* Include padding in the width calculation */
+        }
+
+        .feedback-form button {
+            padding: 10px 20px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .feedback-form button:hover {
+            background-color: #1e40af;
+        }
+        .rating {
+            width: 100%;
+            max-width: 750px;
+            margin-left: 97px;
+            display: inline-flex;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .rating span {
+            font-size: 1rem;
+            color: #1f2937;
+        }
+
+        .rating input {
+            width: 80%;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+
+        /* Make adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons a {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
+            .feedback-container {
+                padding: 15px;
+            }
+
+            .feedback-form input,
+            .feedback-form textarea {
+                max-width: 100%;
+                padding: 8px;
+            }
+
+            .rating input {
+                width: 70%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li class="adwave-container">
+                <img src="{% static 'adw/logo.png' %}" alt="AdWave Logo" class="logo-image">
+            </li>
+            <li><a href="{% url 'index' %}"><b>AdWave</b></a></li>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'features' %}">Features</a></li>
+            <li><a href="{% url 'display' %}">Dynamic Display</a></li>
+            <li><a href="{% url 'submitads' %}">Submit Ads</a></li>
+            <li><a href="{% url 'feedback' %}">Feedback</a></li>
+        </ul>
+        <div class="login-signup">
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'signuplogin' %}">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="feedback-container">
+        <h2>Feedback Module</h2>
+
+        <!-- Polls Section -->
+        <div class="poll-section">
+            <p class="poll-question">How would you rate your experience with our ads?</p>
+            <div class="rating">
+                <span>1</span>
+                <input type="range" id="rating" name="rating" min="1" max="10" value="">
+                <span>10</span>
+            </div>
+            <p>Rating: <span id="rating-value"></span></p>
+
+            <p class="poll-question">Did you find the ads relevant?</p>
+            <label class="poll-option">
+                <input type="radio" name="relevance" value="yes"> Yes
+            </label>
+            <label class="poll-option">
+                <input type="radio" name="relevance" value="no"> No
+            </label>
+        </div>
+
+        <!-- Feedback Form -->
+        <form class="feedback-form" id="feedbackForm">
+            <label for="username">Your Name:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="comments">Comments or Suggestions:</label>
+            <textarea id="comments" name="comments" rows="4" placeholder="Enter your feedback"></textarea>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AdWave. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>

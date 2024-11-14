@@ -1,0 +1,410 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | AdWave</title>
+    <style>
+        /* Global Styles */
+
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E5E5E5;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #2B2B2B;
+            padding: 15px;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 50px;
+            background-color: #333;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #a7f3d0;
+        }
+
+        .login-signup {
+            display: flex;
+            margin-right: 40px;
+        }
+
+        .login-signup a {
+            margin-left: 15px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #6b7280;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .login-signup a:hover {
+            background-color: #4b5563;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #cfe9f7;
+            height: 60vh;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero h1 {
+            color: #0e7490;
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #1f2937;
+        }
+
+        .hero-buttons {
+            margin-top: 20px;
+        }
+
+        .hero-buttons a {
+            padding: 15px 30px;
+            color: white;
+            background-color: #2563eb;
+            border-radius: 30px;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .hero-buttons a:hover {
+            background-color: #1e40af;
+        }
+
+        .container {
+            padding: 50px;
+            text-align: center;
+        }
+
+        /* Services Section */
+        .services {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px;
+            background-color: #f9fafb;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .service-box {
+            width: 200px;
+            padding: 20px;
+            text-align: center;
+            background-color: #D3D3D3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .service-box img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+
+        .service-box h3 {
+            color: #0e7490;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .service-box p {
+            color: #64748b;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #edf2f7;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .about img {
+            width: 400px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: #f8fafc;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .pricing-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 0 20px;
+            display: inline-block;
+            width: 250px;
+        }
+
+        .pricing-box h3 {
+            color: #2563eb;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .pricing-box p {
+            color: #374151;
+            font-size: 1rem;
+        }
+
+        .pricing-box .price {
+            font-size: 24px;
+            color: #0e7490;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .pricing-box button {
+            padding: 10px 20px;
+            color: white;
+            background-color: #2563eb;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .pricing-box button:hover {
+            background-color: #1e40af;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Logo Container */
+        .adwave-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+        }
+        /* Mission, Vision, and Values */
+        .about-sections {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px auto;
+            gap: 30px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .about-box {
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .about-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-box h3 {
+            color: #2563EB;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .about-box p {
+            font-size: 1rem;
+            color: #4B5563;
+        }
+
+        /* Our Team Section */
+        .team-section {
+            background-color: #E0F2FE;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            font-size: 2rem;
+            color: #1E3A8A;
+            margin-bottom: 30px;
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            width: 200px;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .team-member h4 {
+            font-size: 1.2rem;
+            color: #2563EB;
+            margin-bottom: 10px;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="adwave-container">
+                <img src="{% static 'adw/logo.png' %}" alt="AdWave Logo" class="logo-image">
+            </li>
+            <li><a href="{% url 'index' %}"><b>AdWave</b></a></li>
+            <li><a href="{% url 'index' %}">Home</a></li>            
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'features' %}">Features</a></li>
+            <li><a href="{% url 'display' %}">Dynamic Display</a></li>
+            <li><a href="{% url 'submitads' %}">Submit Ads</a></li>
+            <li><a href="{% url 'feedback' %}">Feedback</a></li>
+        </ul>
+        <div class="login-signup">
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'signuplogin' %}">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to AdWave!</h1>
+        <p>
+            At AdWave, we are committed to revolutionizing the world of advertising. Our platform offers a unique
+            approach by leveraging the latest technologies, including Augmented Reality, Heat Mapping Sensors, and Geofencing,
+            to deliver dynamic and interactive ads tailored to your audience.
+            Our aim is to make sure Companies and their graphic designers get their product valued in the best way possible.
+        </p>
+        <p>
+            Our mission is to help businesses engage with their audience in a more meaningful way, creating impactful
+            campaigns that resonate and drive results.
+        </p>
+    </div>
+
+    <div class="about-sections">
+        <!-- Mission -->
+        <div class="about-box">
+            <h3>Our Mission</h3>
+            <p>To empower businesses with innovative advertising solutions that engage audiences through dynamic and
+                interactive experiences. Our one place for all your marketing needs.</p>
+        </div>
+
+        <!-- Vision -->
+        <div class="about-box">
+            <h3>Our Vision</h3>
+            <p>To become the leading platform in digital advertising by integrating cutting-edge technologies such as AR,
+                heat mapping, and location-based services.</p>
+        </div>
+
+        <!-- Values -->
+        <div class="about-box">
+            <h3>Our Values</h3>
+            <p>At the heart of everything we do, we believe in transparency, innovation, and putting our customers
+                first.</p>
+        </div>
+    </div>
+
+    <!-- Our Team Section -->
+    <div class="team-section">
+        <h2>Meet Our Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="{% static 'adw/jigyasa.jpg' %}" alt="Jigyasa Jain">
+                <h4>Jigyasa Jain</h4>
+               <!-- <p>Founder & CEO</p> -->
+            </div>
+            <div class="team-member">
+                <img src="{% static 'adw/maitreyee.jpg' %}" alt="Maitreyee Kulkarni">
+                <h4>Maitreyee Kulkarni</h4>
+                <!-- <p>Chief Marketing Officer</p> -->
+            </div>
+            <div class="team-member">
+                <img src="{% static 'adw/tanaya.png' %}" alt="Tanaya Joshi">
+                <h4>Tanaya Joshi</h4>
+                <!-- <p>Lead Developer</p> -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AdWave. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,292 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdWave - Display Ads</title>
+    <style>
+        /* Existing styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E5E5E5;
+            color: #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 50px;
+            background-color: #333;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #a7f3d0;
+        }
+
+        .login-signup {
+            display: flex;
+            margin-right: 40px;
+        }
+
+        .login-signup a {
+            margin-left: 15px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #6b7280;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .login-signup a:hover {
+            background-color: #4b5563;
+        }
+
+        .display-ads {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
+
+        .display-ads h2 {
+            color: #0e7490;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .ads-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Space between ads */
+        }
+
+        .ad-card {
+            width: 300px;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .ad-card.active {
+            opacity: 1;
+        }
+
+        .ad-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .ad-card h3 {
+            color: #1f2937;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .ad-card p {
+            color: #374151;
+            margin-bottom: 15px;
+        }
+
+        .ad-card button {
+            padding: 10px 20px;
+            color: white;
+            background-color: #2563eb;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .ad-card button:hover {
+            background-color: #1e40af;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        
+        .adwave-container {
+            display: flex;
+            align-items: center; /* Vertically aligns image and text */
+        }
+
+        .logo-image {
+            width: 50px; /* Adjust the size as needed */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li class="adwave-container">
+                <img src="{% static 'adw/logo.png' %}" alt="AdWave Logo" class="logo-image">
+            </li>
+            <li><a href="{% url 'index' %}"><b>AdWave</b></a></li>
+            <li><a href="{% url 'index' %}">Home</a></li>            
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'features' %}">Features</a></li>
+            <li><a href="{% url 'display' %}">Dynamic Display</a></li>
+            <li><a href="{% url 'submitads' %}">Submit Ads</a></li>
+            <li><a href="{% url 'feedback' %}">Feedback</a></li>
+        </ul>
+        <div class="login-signup">
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'signuplogin' %}">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- Display Ads Section -->
+    <section class="display-ads">
+        <h2>Our Featured Ads</h2>
+        <div class="ads-container">
+            <!-- Example Ad Card -->
+            <div class="ad-card active">
+                <img src="{% static 'adw/spotify.gif' %}" alt="Spotify">
+                <h3>Spotify</h3>
+                <p>Listen to your best music on Spotify!</p>
+                <a href="https://open.spotify.com" target="_blank">
+                <button>Learn More</button>
+                </a>
+            </div>
+
+            <!-- Repeat Ad Cards as needed -->
+            <!-- <div class="ad-card">
+                <img src="{% static 'adw/Dropbox.gif' %}" alt="Dropbox">
+                <h3>Dropbox</h3>
+                <p>Store your files safely with Dropbox.</p>
+                <button>Learn More</button>
+            </div>-->
+
+            <div class="ad-card">
+                <img src="{% static 'adw/google.gif' %}" alt="google">
+                <h3>Google</h3>
+                <p>Do the right thing.</p>
+                <a href="https://www.google.com" target="_blank">
+                    <button>Learn More</button>
+                </a>
+            </div>
+
+            <div class="ad-card">
+                <img src="{% static 'adw/Amazon.gif' %}" alt="Amazon">
+                <h3>Amazon</h3>
+                <p>Buy or sell your products on Amazon!</p>
+                <a href="https://www.amazon.in" target="_blank">
+                <button>Learn More</button>
+                </a>
+            </div>
+
+            <div class="ad-card">
+                <img src="{% static 'adw/Myntra.gif' %}" alt="myntra">
+                <h3>Myntra Beauty</h3>
+                <p>Find Your Own Beauty.</p>
+                <a href="https://www.myntra.com/" target="_blank">
+                <button>Learn More</button>
+                </a>
+            </div>
+
+            <div class="ad-card">
+                <img src="{% static 'adw/samsung.gif' %}" alt="Samsung">
+                <h3>Samsung Technologies</h3>
+                <p>Buy your electronic gadgets at Samsung.</p>
+                <a href="https://www.samsung.com/in/" target="_blank">
+                <button>Learn More</button>
+                </a>
+            </div>
+
+            <div class="ad-card">
+                <img src="{% static 'adw/travelloka.gif' %}" alt="Traveloka">
+                <h3>Traveloka</h3>
+                <p>Travel with the best rates on Traveloka.</p>
+                <a href="https://www.traveloka.com/en-en" target="_blank">
+                <button>Learn More</button>
+                </a>
+            </div>
+
+            <div class="ad-card">
+                <img src="{% static 'adw/duolingo.gif' %}" alt="duolingo">
+                <h3>Duolingo</h3>
+                <p>Everyone can Duolingo. Get Duolingo Plus benefits now!</p>
+                <a href="https://www.duolingo.com/" target="_blank">
+                <button>Learn More</button>
+                </a>
+            </div>
+
+            <div class="ad-card">
+                <img src="{% static 'adw/Walmart.gif' %}" alt="Walmart">
+                <h3>Walmart</h3>
+                <p>Buy products at reasonable rates at Walmart!</p>
+                <a href="https://www.walmart.com/" target="_blank">
+                <button>Learn More</button>
+                </a>
+            </div>
+
+            <!-- Add more ad cards as needed -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AdWave. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Slideshow Script -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.ad-card');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 1500); // Change slide every 5 seconds
+    </script>
+</body>
+</html>

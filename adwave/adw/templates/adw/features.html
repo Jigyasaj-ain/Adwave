@@ -1,0 +1,484 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdWave Functionalities</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #E5E5E5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #2B2B2B;
+            padding: 15px;
+            text-align: center;
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 50px;
+            background-color: #333;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #a7f3d0;
+        }
+
+        .login-signup {
+            display: flex;
+            margin-right: 40px;
+        }
+
+        .login-signup a {
+            margin-left: 15px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #6b7280;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .login-signup a:hover {
+            background-color: #4b5563;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #cfe9f7;
+            height: 60vh;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero h1 {
+            color: #0e7490;
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #1f2937;
+        }
+
+        .hero-buttons {
+            margin-top: 20px;
+        }
+
+        .hero-buttons a {
+            padding: 15px 30px;
+            color: white;
+            background-color: #2563eb;
+            border-radius: 30px;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .hero-buttons a:hover {
+            background-color: #1e40af;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #cfe9f7;
+            height: 60vh;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero h1 {
+            color: #0e7490;
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #1f2937;
+        }
+
+        .hero-buttons {
+            margin-top: 20px;
+        }
+
+        .hero-buttons a {
+            padding: 15px 30px;
+            color: white;
+            background-color: #2563eb;
+            border-radius: 30px;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .hero-buttons a:hover {
+            background-color: #1e40af;
+        }
+
+        /* Ad Display Section */
+        .ad-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background-color: #ffffff;
+            margin: 20px auto;
+            width: 80%;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .ad {
+            width: 80%;
+            height: 100%;
+            background-color: #ffffff;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-in-out;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .ad img,
+        .ad video {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 15px;
+        }
+
+        .ad.hide {
+            opacity: 0;
+        }
+
+        .controls {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        .controls button {
+            padding: 10px 20px;
+            background-color: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 0 10px;
+        }
+
+        .controls button:hover {
+            background-color: #1e40af;
+        }
+        /* Services Section */
+        .services {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px;
+            background-color: #f9fafb;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .service-box {
+            width: 200px;
+            padding: 20px;
+            text-align: center;
+            background-color: #D3D3D3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .service-box img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+
+        .service-box h3 {
+            color: #0e7490;
+        }
+
+        .service-box p {
+            color: #64748b;
+        }
+
+        /* Feedback Section */
+        .feedback-container {
+            background-color: #edf2f7;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .feedback-container textarea {
+            width: 80%;
+            height: 100px;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            resize: none;
+        }
+
+        .feedback-container button {
+            padding: 10px 20px;
+            color: white;
+            background-color: #2563eb;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .feedback-container button:hover {
+            background-color: #1e40af;
+        }
+
+        .feedback-message {
+            color: #0e7490;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: #f8fafc;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .pricing-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 0 20px;
+            display: inline-block;
+        }
+
+        .pricing-box h3 {
+            color: #2563eb;
+        }
+
+        .pricing-box p {
+            color: #374151;
+        }
+
+        .pricing-box .price {
+            font-size: 24px;
+            color: #0e7490;
+        }
+
+        .pricing-box button {
+            padding: 10px 20px;
+            color: white;
+            background-color: #2563eb;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .pricing-box button:hover {
+            background-color: #1e40af;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .adwave-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li class="adwave-container">
+                <img src="{% static 'adw/logo.png' %}" alt="AdWave Logo" class="logo-image">
+            </li>
+            <li><a href="{% url 'index' %}"><b>AdWave</b></a></li>
+            <li><a href="{% url 'index' %}">Home</a></li>            
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'features' %}">Features</a></li>
+            <li><a href="{% url 'display' %}">Dynamic Display</a></li>
+            <li><a href="{% url 'submitads' %}">Submit Ads</a></li>
+            <li><a href="{% url 'feedback' %}">Feedback</a></li>
+        </ul>
+        <div class="login-signup">
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'signuplogin' %}">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>"Empowering Ads, Simplifying Reach."</h1>
+        <p>"At AdWave, we are redefining the Ad experience with a suite of innovative features designed to make your advertising more impactful, more engaging, and easier to manage. Discover tools that empower your brand to connect with audiences in meaningful ways, while providing data-driven insights and seamless control."</p>
+        <p>"With AdWave, every feature is designed with purpose: to simplify, to enhance, and to amplify your advertising power. Dive in and let AdWave take your campaigns to the next level."
+        </p>
+        <div class="hero-buttons">
+            <a href="#">Contact Us</a>
+            <a href="#">Join Now</a>
+        </div>
+    </section>
+
+    <!-- Ad Display Section -->
+    <section class="ad-container">
+        <div class="ad" id="ad1">
+            <img src="{% static 'adw/ad1.gif' %}" alt="Ad 1">
+        </div>
+        <div class="ad hide" id="ad2">
+            <img src="{% static 'adw/ad2.gif' %}" alt="Ad 2">
+        </div>
+        <div class="ad hide" id="ad3">
+            <img src="{% static 'adw/ad3.gif' %}" alt="Ad 3">
+        </div>
+    </section>
+
+    <!-- Controls for Ad Display -->
+    <div class="controls">
+        <button onclick="showAd(1)">Ad 1</button>
+        <button onclick="showAd(2)">Ad 2</button>
+        <button onclick="showAd(3)">Ad 3</button>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="service-box">
+            <img src="{% static 'adw/easy-ad-submission.png' %}" alt="Easy Ad Submission">
+            <h3>Easy Ad Submission</h3>
+            <p>Submit ads with a few clicks and see them live in minutes.</p>
+        </div>
+        <div class="service-box">
+            <img src="{% static 'adw/dynamic-ad-display.gif' %}" alt="Dynamic Ad Display">
+            <h3>Dynamic Display</h3>
+            <p>Showcase ads on multiple screens dynamically and in real-time.</p>
+        </div>
+        <div class="service-box">
+            <img src="{% static 'adw/performance-tracking.png' %}" alt="Performance-Tracking">
+            <h3>Performance Tracking</h3>
+            <p>Track ad performance with detailed analytics and reports.</p>
+        </div>
+        <div class="service-box">
+            <img src="{% static 'adw/ad-scheduling.png' %}" alt="Timely AD Scheduling">
+            <h3>Ad Scheduling</h3>
+            <p>We ensure your ads are displayed on a customizable schedule.</p>
+        </div>
+        <div class="service-box">
+            <img src="{% static 'adw/multilingual.png' %}" alt="Multilingual">
+            <h3>Multilingual Ad Display</h3>
+            <p>Display your content in multiple languages.</p>
+        </div>
+        <div class="service-box">
+            <img src="{% static 'adw/qrfeedback.png' %}" alt="Feedback">
+            <h3>Feedback</h3>
+            <p>Collect valuable feedback to improve your ad campaigns.</p>
+        </div>
+    </section>
+
+    <!-- Feedback Form -->
+    <section class="feedback-container">
+        <h2>Give us your feedback!</h2>
+        <textarea placeholder="Write your feedback here..."></textarea>
+        <button onclick="submitFeedback()">Submit</button>
+        <p class="feedback-message" id="feedback-message"></p>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <h2>Our Pricing Plans</h2>
+        <div class="pricing-box">
+            <h3>Basic</h3>
+            <p class="price">Free</p>
+            <p>For individual advertisers.</p>
+            <button>Choose Plan</button>
+        </div>
+        <div class="pricing-box">
+            <h3>Pro</h3>
+            <p class="price">Rs 3000/month</p>
+            <p>For businesses and agencies.</p>
+            <button>Choose Plan</button>
+        </div>
+        <div class="pricing-box">
+            <h3>Enterprise</h3>
+            <p class="price">Rs 4000/month</p>
+            <p>For large organizations.</p>
+            <button>Choose Plan</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AdWave. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript function to switch between ads
+        function showAd(adNumber) {
+            var ads = document.querySelectorAll('.ad');
+            ads.forEach(function(ad, index) {
+                if (index === adNumber - 1) {
+                    ad.classList.remove('hide');
+                } else {
+                    ad.classList.add('hide');
+                }
+            });
+        }
+
+        // JavaScript function to show feedback message
+        function submitFeedback() {
+            document.getElementById('feedback-message').innerText = "Thank you for your feedback!";
+        }
+    </script>
+</body>
+
+</html>
